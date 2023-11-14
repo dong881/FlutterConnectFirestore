@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "792040977590",
+    "firebase_url": "https://esp32-5226b-default-rtdb.firebaseio.com",
+    "project_id": "esp32-5226b",
+    "storage_bucket": "esp32-5226b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792040977590:android:ca6dfcc31190d3cb19a217",
+        "android_client_info": {
+          "package_name": "com.example.ming_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjpaPA8iKMIgpWpJV14cTuODveXVyjIDA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

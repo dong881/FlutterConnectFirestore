@@ -83,6 +83,25 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             StreamBuilder(
+              stream: FirebaseDatabase.instance.ref('Device-ID').onValue,
+              builder: (context, AsyncSnapshot snapshot) {
+                if (snapshot.hasError) {
+                  return Text('Error: ${snapshot.error}');
+                }
+
+                if (!snapshot.hasData || snapshot.data == null) {
+                  return const Text('Loading...');
+                }
+
+                final data = snapshot.data!.snapshot.value.toString();
+                return Text(
+                  data,
+                  style: Theme.of(context).textTheme.headlineLarge,
+                );
+              },
+            ),
+
+            StreamBuilder(
               stream: FirebaseFirestore.instance
                   .collection('TEST_123')
                   .orderBy('time', descending: true)

@@ -3,6 +3,7 @@ import 'helpers/Constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,9 +46,21 @@ class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController _illuminationController = TextEditingController();
 
   // 新增一個方法來上傳新的數據
-  void _uploadData() {
+  Future<void> _uploadData() async {
     double angle = double.tryParse(_angleController.text) ?? 0.0;
     int illumination = int.tryParse(_illuminationController.text) ?? 0;
+
+    DatabaseReference ref = FirebaseDatabase.instance.ref("Device-ID");
+
+    await ref.set({
+      "Height": 55,
+      "Mode": true,
+      "Timer":{
+        "week":1,
+        "time":235959,
+        "task":1023
+      }
+    });
 
     // 上傳新的數據
     FirebaseFirestore.instance.collection('TEST_123').add({
